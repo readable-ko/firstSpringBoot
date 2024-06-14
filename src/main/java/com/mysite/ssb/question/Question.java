@@ -1,4 +1,5 @@
 package com.mysite.ssb.question;
+
 import com.mysite.ssb.answer.Answer;
 import com.mysite.ssb.user.SiteUser;
 import jakarta.persistence.CascadeType;
@@ -17,7 +18,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Getter
@@ -27,6 +27,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 public class Question {
+    @ManyToMany
+    Set<SiteUser> voter;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -47,7 +50,4 @@ public class Question {
 
     @Column
     private LocalDateTime modifiedDate;
-
-    @ManyToMany
-    Set<SiteUser> voter;
 }
