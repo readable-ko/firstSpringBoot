@@ -54,6 +54,7 @@ public class QuestionService {
         Question updatedQuestion = question.toBuilder()
                 .subject(subject)
                 .content(content)
+                .modifiedDate(LocalDateTime.now())
                 .build();
         this.questionRepository.save(updatedQuestion);
     }
