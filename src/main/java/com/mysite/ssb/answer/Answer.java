@@ -2,6 +2,7 @@ package com.mysite.ssb.answer;
 
 import com.mysite.ssb.question.Question;
 import com.mysite.ssb.user.SiteUser;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import java.time.LocalDateTime;
 import jakarta.persistence.Column;
@@ -9,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,4 +35,7 @@ public class Answer {
 
     @Column
     private LocalDateTime modifiedDate;
+
+    @ManyToMany
+    Set<SiteUser> voter;
 }
